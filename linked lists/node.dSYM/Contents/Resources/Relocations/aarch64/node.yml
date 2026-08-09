@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/babarzargar/data structures/linked lists/node'
+relocations:     []
+...
