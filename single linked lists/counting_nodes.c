@@ -16,8 +16,19 @@ void count_of_nodes(struct node *head){
         count++;
         ptr = ptr -> link;
     }
-    printf("total nodes = %d", count);
+    printf("total nodes = %d\n", count);
 
+}
+
+void print_data(struct node *head){
+    if(head == NULL)
+        printf("the list is empty");
+
+    struct node *ptr = head;
+    while(ptr != NULL){
+        printf("%d\n", ptr -> data);
+        ptr = ptr -> link;
+    }
 }
 
 
@@ -36,12 +47,10 @@ int main(){
     current -> link = NULL;
     head -> link -> link = current;
 
-    printf("%d\n", head -> data);
-    printf("%d\n", head -> link -> data);
-    printf("%d\n", current -> data);
-
-    // counting the number of nodes by travering the list
+    // counting the number of nodes by traversing the list
     count_of_nodes(head);
+    // printing the data of each node by traversing
+    print_data(head);
 
     return 0;
 }
