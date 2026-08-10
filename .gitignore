@@ -1,0 +1,9 @@
+# Compiled C executables
+single linked lists/insertion_end
+single linked lists/traversing
+
+# macOS debug symbol folders
+*.dSYM/
+
+# macOS
+.DS_Store
