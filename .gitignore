@@ -1,13 +1,20 @@
-# Compiled C/C++ executables
-single linked lists/*
-!single linked lists/*.c
-!single linked lists/*.md
+# macOS
+.DS_Store
 
-# macOS debug symbol folders
-*.dSYM/
-
-# Object files
+# C/C++ object files
 *.o
 
-# macOS system files
-.DS_Store
+# Debug symbol folders
+*.dSYM/
+
+# Build directories
+bin/
+
+# Common macOS/Clang executables
+LL3nodes
+insertion_end
+insertion_end2
+linkedlist1
+node
+struct_func1
+traversing
