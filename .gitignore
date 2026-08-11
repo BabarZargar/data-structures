@@ -1,6 +1,7 @@
 # Compiled C/C++ executables
 single linked lists/*
 !single linked lists/*.c
+!single linked lists/*.md
 
 # macOS debug symbol folders
 *.dSYM/
