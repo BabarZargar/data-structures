@@ -1,20 +1,17 @@
 # macOS
 .DS_Store
 
+# Debug symbol folders created by Clang
+*.dSYM/
+
 # C/C++ object files
 *.o
 
-# Debug symbol folders
-*.dSYM/
-
-# Build directories
-bin/
-
-# Common macOS/Clang executables
-LL3nodes
-insertion_end
-insertion_end2
-linkedlist1
-node
-struct_func1
-traversing
+# Ignore compiled executables
+# Keep source code and notes
+*
+!*/
+!*.c
+!*.h
+!*.md
+!.gitignore
