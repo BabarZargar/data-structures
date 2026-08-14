@@ -9,6 +9,7 @@
                 "-fansi-escape-codes",
                 "-g",
                 "${file}",
+                "${fileDirname}/linkedlist.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
