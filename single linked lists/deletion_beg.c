@@ -1,37 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "linkedlist.h"
 
-struct node{
-    int data;
-    struct node *link;
-};
-
-void add_at_end(struct node *head, int data){
-    struct node *ptr, *temp;
-    ptr = head;
-    temp = (struct node *)malloc(sizeof(struct node));
-
-    temp -> data = data;
-    temp -> link = NULL;
-
-    while(ptr -> link != NULL){
-        ptr = ptr -> link;
+struct node* del_first(struct node *head){
+    if(head == NULL){
+        printf("list is already empty");
     }
-    ptr -> link = temp;
-
+    else{
+        struct node *temp = head;
+        head = head -> link;
+        free(temp);
+        temp = NULL;
+    }
+    return head;
 }
-
 int main(){
     struct node *head = malloc(sizeof(struct node));
     head -> data = 27;
     head -> link = NULL;
 
+    struct node *ptr = head;
     add_at_end(head, 29);
     add_at_end(head, 67);
 
     head = del_first(head);
     ptr = head;
     while(ptr!=NULL){
-
+        printf("%d\n", ptr -> data);
+        ptr = ptr -> link;
     }
+    return 0;
 }
