@@ -22,7 +22,7 @@ struct node* del_end(struct node *head){
     return head;
 }
 int main(){
-     struct node *head = malloc(sizeof(struct node));
+    struct node *head = malloc(sizeof(struct node));
     head -> data = 27;
     head -> link = NULL;
 
