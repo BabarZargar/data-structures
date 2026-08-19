@@ -1,25 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-struct node{
-    int data;
-    struct node *link;
-};
-
-void add_at_end(struct node *head, int data){
-    struct node *ptr, *temp;
-    ptr = head;
-    temp = (struct node *)malloc(sizeof(struct node));
-
-    temp -> data = data;
-    temp -> link = NULL;
-
-    while(ptr -> link != NULL){
-        ptr = ptr -> link;
-    }
-    ptr -> link = temp;
-
-}
+#include "linkedlist.h"
 
 int main(){
     struct node *head = malloc(sizeof(struct node));

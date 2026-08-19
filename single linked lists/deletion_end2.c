@@ -27,8 +27,8 @@ int main(){
     head -> link = NULL;
 
     struct node *ptr = head;
-    add_at_end(head, 98);
-    add_at_end(head, 3);
+    add_at_end(head, 29);
+    add_at_end(head, 67);
 
     head = del_end(head);
     ptr = head;
