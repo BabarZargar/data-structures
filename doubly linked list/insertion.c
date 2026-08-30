@@ -40,11 +40,45 @@ struct node* addAtEnd(struct node* head, int data){
     temp -> prev = tp;
     return head;
 }
+
+struct node* addAtPos(struct node* head, int data, int pos){
+    struct node* temp = malloc(sizeof(struct node));
+    struct node* temp1 = malloc(sizeof(struct node));
+    struct node* temp2 = malloc(sizeof(struct node));
+
+    temp1 = head;
+
+    temp -> prev = NULL;
+    temp -> data = data;
+    temp -> next = NULL;
+
+    while(pos != 1){
+        temp1 = temp1 -> next;
+        pos--;
+    }
+
+    if(temp1 -> next == NULL){
+        temp1 -> next = temp;
+        temp -> prev = temp1;
+    }
+
+    else{
+        temp2 = temp1 -> next;
+        temp1 -> next = temp;
+        temp2 -> prev = temp;
+        temp -> prev = temp1;
+        temp -> next = temp2;
+        return head;
+    }
+}
+
+
 int main(){
     struct node* head = NULL;
     head = addToEmpty(head, 29);
     head = addAtBeg(head, 27);
     head = addAtEnd(head, 67);
+    head = addAtPos(head, 69, 2);
 
     struct node* ptr = head;
     while(ptr != NULL){
