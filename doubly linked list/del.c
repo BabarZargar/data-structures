@@ -15,17 +15,6 @@ struct node* addToEmpty(struct node* head, int data){
     return head;
 }
 
-struct node* addAtBeg(struct node* head, int data){
-    struct node* temp = malloc(sizeof(struct node));
-    temp -> prev = NULL;
-    temp -> data = data;
-    temp -> next = NULL;
-    temp -> next = head;
-    head -> prev = temp;
-    head = temp;
-    return head;
-}
-
 struct node* addAtEnd(struct node* head, int data){
     struct node* temp, *tp;
     temp = malloc(sizeof(struct node));
@@ -41,43 +30,57 @@ struct node* addAtEnd(struct node* head, int data){
     return head;
 }
 
-struct node* addAtPos(struct node* head, int data, int pos){
-    struct node* temp = malloc(sizeof(struct node));
-    struct node* temp1 = malloc(sizeof(struct node));
-    struct node* temp2 = malloc(sizeof(struct node));
-
-    temp1 = head;
-
-    temp -> prev = NULL;
-    temp -> data = data;
-    temp -> next = NULL;
-
-    while(pos != 1){
-        temp1 = temp1 -> next;
-        pos--;
-    }
-
-    if(temp1 -> next == NULL){
-        temp1 -> next = temp;
-        temp -> prev = temp1;
-    }
-    else{
-        temp2 = temp1 -> next;
-        temp1 -> next = temp;
-        temp2 -> prev = temp;
-        temp -> prev = temp1;
-        temp -> next = temp2;
-    }
+struct node* delAtBeg(struct node* head){
+    head = head -> next;
+    free(head -> prev);
+    head -> prev = NULL;
     return head;
 }
 
+struct node* delAtEnd(struct node* head){
+    struct node* temp;
+    struct node* temp1;
+
+    temp = head;
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    temp1 = temp -> prev;
+    free(temp);
+    temp = NULL;
+    temp1 -> next = NULL;
+    return head;
+}
+
+struct node* delAtPos(struct node* head, int pos){
+    struct node* temp = head;
+    struct node* temp1 = NULL;
+
+    while(pos!=1){
+        temp = temp -> next;
+        pos--;
+    }
+    if(temp->next->next == NULL){
+        head = delAtEnd(head);
+    }
+    else{
+        temp1 = temp -> next -> next;
+    free(temp->next);
+    temp -> next = temp1;
+    temp1 -> prev = temp;
+    }
+    
+    return head;
+}
 
 int main(){
     struct node* head = NULL;
     head = addToEmpty(head, 29);
-    head = addAtBeg(head, 27);
+    head = addAtEnd(head, 27);
     head = addAtEnd(head, 67);
-    head = addAtPos(head, 69, 2);
+    head = addAtEnd(head, 69);
+
+    head = delAtPos(head, 3);
 
     struct node* ptr = head;
     while(ptr != NULL){
